@@ -69,6 +69,17 @@ section p {
   display: inline-block;
 }
 
+
+section#policy {
+  text-align: left;
+  padding: 24px 48px;
+}
+
+section#policy p {
+  text-align: left;
+  
+}
+
 section#content {
   background-color: #29741d;
   color: #f3f4e7;
@@ -77,6 +88,10 @@ section#content {
 section#leadform {
   background-color: #29741d;
   color: #f3f4e7;
+}
+
+section#leadform a {
+  color: #FFD56B; /* Golden Sunburst */
 }
 
 section#faq {
