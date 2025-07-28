@@ -10,7 +10,6 @@ body {
 .container {
   max-width: 960px;
   margin: auto;
-  padding: 2em 1em;
 }
 
 /* Header two-column layout */
@@ -64,12 +63,24 @@ section {
   text-align: center;
 }
 
-section#faq {
-  background-color: #e7efe1;
+section p {
+  max-width: 600px;
+  text-align: center;
+  display: inline-block;
 }
+
+section#content {
+  background-color: #29741d;
+  color: #f3f4e7;
+}
+
 section#leadform {
   background-color: #29741d;
   color: #f3f4e7;
+}
+
+section#faq {
+  background-color: #e7efe1;
 }
 
 section#faq ul {
@@ -84,10 +95,6 @@ section#faq li {
   margin-bottom: 1.2em;
 }
 
-section#policy {
-  padding: 2em 3em;
-  text-align: left;
-}
 /* Footer Styling */
 footer {
   background-color: #29741d;
