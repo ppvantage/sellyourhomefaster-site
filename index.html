@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sell Your Home Faster</title>
+  <meta name="description" content="Sell your home fast for cash. No fees. No stress. Local, trustworthy and confidential." />
+  <meta property="og:title" content="Sell Your House Fast for Cash" />
+  <meta property="og:description" content="Fast, fair, and friendly home selling – no fees, no stress." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="favicon.ico" />
+  <script src="cookie-consent.js" defer></script>
+</head>
+<body>
+
+  <main class="container">
+    <header>
+		<a href="index.html" class="logo">
+		  <img src="assets/SYHF_logo_full.png" alt="Sell Your Home Faster Logo" class="logo" href="index.html">
+		</a>
+		<div class="headline">
+        <h1>Sell Your Home Faster – No Fees, No Stress</h1>
+        <p>We're here to help you move forward, no matter the reason.</p>
+      </div>
+    </header>
+	
+    <section id="leadform">
+      <h2>Request a Callback</h2>
+      <p style="font-size: 1.1em;">We'll get in touch to understand your situation and offer the best solution.</p>
+	  
+      <div id="formContainer" style="display:none">
+        <iframe src="https://forms.gle/2yASbjnjFjGE4Wqd9" width="640" height="930" frameborder="0" marginheight="0" marginwidth="0" loading="lazy">Loading…</iframe>
+      </div>
+      <div id="formLink" style="display:none;">
+        <p><a href="https://forms.gle/msKuc1uRg8URRoiu5" target="_blank">Click here to fill in the contact form</a></p>
+      </div>
+    </section>
+
+    <section id="faq">
+      <h2>Frequently Asked Questions</h2>
+      <ul>
+        <li><strong>Do I have to pay any fees?</strong> No, there are no agent fees or hidden charges.</li>
+        <li><strong>Will you buy any property?</strong> Yes – any condition, any reason.</li>
+        <li><strong>Is it confidential?</strong> Absolutely. Your privacy matters to us.</li>
+        <li><strong>How fast can you complete?</strong> We aim for as fast as you need – usually within weeks.</li>
+      </ul>
+    </section>
+
+    <footer>
+      <p>Contact us: <a href="mailto:contact@sellyourhomefaster.co.uk">contact@sellyourhomefaster.co.uk</a></p>
+      <p>
+        <a href="https://www.facebook.com/profile.php?id=61577849314838" target="_blank">Facebook</a> |
+        <a href="https://www.instagram.com/sellyourhome.faster " target="_blank">Instagram</a>
+      </p>
+      <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms</a> | <a href="cookie-policy.html">Cookie Policy</a></p>
+      <p>
+        Disclaimer: Sell Your Home Faster operates as a lead generation platform under P&amp;P Vantage Limited, connecting property owners with independent cash buyers and investors as an alternative to traditional estate agency routes. All buyers act independently, and we do not represent or provide advice on their behalf. We do not offer legal or financial advice, and strongly recommend that you seek independent legal counsel before entering into any agreement regarding the sale of your property.
+      </p>
+      <p>© 2025 Sell Your Home Faster – Powered by P&amp;P Vantage Limited</p>
+    </footer>
+  </main>
+
+  <!-- Meta Pixel (placeholder only loads if marketing consent given) -->
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      if (window.cookieConsent && window.cookieConsent.marketing) {
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '123456789012345'); 
+        fbq('track', 'PageView');
+      }
+
+      if (window.cookieConsent && window.cookieConsent.analytics) {
+        document.getElementById('formContainer').style.display = 'block';
+        document.getElementById('formLink').style.display = 'none';
+      } else {
+        document.getElementById('formContainer').style.display = 'none';
+        document.getElementById('formLink').style.display = 'block';
+      }
+    });
+  </script>
+</body>
+</html>

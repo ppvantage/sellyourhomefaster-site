@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="cookie-consent.js" defer></script>
+</head>
+<body>
+ 
+
+  <main>
+   <header>
+	<a href="index.html" class="logo">
+	  <img src="assets/SYHF_logo_full.png" alt="Sell Your Home Faster Logo" class="logo" href="index.html">
+	</a>
+    <div class="headline">
+      <h1>Sell Your Home Faster – No Fees, No Stress</h1>
+      <p>We're here to help you move forward, no matter the reason.</p>
+    </div>
+  </header>
+  
+  <section id="policy">
+    <h1>Privacy Policy</h1>
+	
+	<p>sellyourhomefaster.uk ("we", "us", or "our"), owned by P&amp;P Vantage Limited, respects your privacy and is committed to protecting your personal data.<br>
+	The <a href="https://www.ppvantage.co.uk/privacy-policy/">P&amp;P Vantage Privacy Policy.</a> explains how we collect, use, store, and share your information when you use our website ppvantage.co.uk ("Website") or otherwise communicate with us.
+	</p>
+  </section>
+  </main>
+
+  <footer>
+    <p>Contact us: <a href="mailto:contact@sellyourhomefaster.co.uk">contact@sellyourhomefaster.co.uk</a></p>
+    <p>
+      <a href="https://www.facebook.com/profile.php?id=61577849314838" target="_blank">Facebook</a> |
+      <a href="https://www.instagram.com/sellyourhome.faster " target="_blank">Instagram</a>
+    </p>
+    <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms</a> | <a href="cookie-policy.html">Cookie Policy</a></p>
+    <p>
+      Disclaimer: Sell Your Home Faster operates as a lead generation platform under P&amp;P Vantage Limited, connecting property owners with independent cash buyers and investors as an alternative to traditional estate agency routes. All buyers act independently, and we do not represent or provide advice on their behalf. We do not offer legal or financial advice, and strongly recommend that you seek independent legal counsel before entering into any agreement regarding the sale of your property.
+    </p>
+    <p>© 2025 Sell Your Home Faster – Powered by P&amp;P Vantage Limited</p>
+  </footer>
+  <script>
+    const form = document.getElementById('cookie-settings');
+    const analyticsCheckbox = document.getElementById('analyticsConsent');
+    const marketingCheckbox = document.getElementById('marketingConsent');
+    const status = document.getElementById('saveStatus');
+
+    // Load saved preferences
+    document.addEventListener('DOMContentLoaded', () => {
+      const saved = localStorage.getItem('cookieConsent');
+      if (saved) {
+        try {
+          const consent = JSON.parse(saved);
+          analyticsCheckbox.checked = !!consent.analytics;
+          marketingCheckbox.checked = !!consent.marketing;
+        } catch (e) {
+          console.error('Failed to parse cookie consent');
+        }
+      }
+    });
+
+    // Handle submission
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const consent = {
+        analytics: analyticsCheckbox.checked,
+        marketing: marketingCheckbox.checked
+      };
+      localStorage.setItem('cookieConsent', JSON.stringify(consent));
+      window.cookieConsent = consent;
+      document.dispatchEvent(new Event('cookieConsentUpdated'));
+      status.style.display = 'block';
+    });
+  </script>
+</body>
+</html>
