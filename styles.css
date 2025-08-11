@@ -12,6 +12,8 @@ body {
   margin: auto;
 }
 
+.hidden { display: none; }
+
 #formContainer { max-width: 640px; margin: 0 auto; }
 
 /* Header two-column layout */
