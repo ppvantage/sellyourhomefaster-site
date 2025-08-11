@@ -1,7 +1,7 @@
-// cookie-consent.js
+// /assets/js/cookie-consent.js
 (function () {
-  const KEY = 'syhf_cookie_consent_v1';       // <- versioned key
-  const OLD_KEY = 'cookieConsent';            // <- migrate from this if present
+  const KEY = 'syhf_cookie_consent_v1';
+  const OLD_KEY = 'cookieConsent'; // migrate from this if present
   const isPolicyPage = window.location.pathname.includes('cookie-policy');
 
   function emitConsentUpdated() {
@@ -10,15 +10,41 @@
     window.dispatchEvent(evt);
   }
 
+  function normalise(consent) {
+    // Enforce a simple, stable shape
+    return {
+      analytics: !!consent.analytics,
+      marketing: !!consent.marketing
+    };
+  }
+
   function setConsent(consent) {
-    localStorage.setItem(KEY, JSON.stringify(consent));
-    window.cookieConsent = consent;
+    const clean = normalise(consent);
+    localStorage.setItem(KEY, JSON.stringify(clean));
+    window.cookieConsent = clean;
     document.getElementById('cookie-banner')?.remove();
     emitConsentUpdated();
   }
 
+  function readConsentFromStorage() {
+    // one-time migration from OLD_KEY
+    const old = localStorage.getItem(OLD_KEY);
+    const cur = localStorage.getItem(KEY);
+    if (old && !cur) {
+      localStorage.setItem(KEY, old);
+      localStorage.removeItem(OLD_KEY);
+    }
+    try {
+      const parsed = JSON.parse(localStorage.getItem(KEY) || '{}');
+      return normalise(parsed);
+    } catch {
+      return {};
+    }
+  }
+
   function showBanner() {
     if (isPolicyPage || document.getElementById('cookie-banner')) return;
+
     const banner = document.createElement('div');
     banner.id = 'cookie-banner';
     banner.style.position = 'fixed';
@@ -31,62 +57,38 @@
     banner.style.zIndex = '10000';
     banner.style.fontFamily = 'sans-serif';
     banner.innerHTML = `
-      <div style="max-width: 960px; margin: auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;">
-        <p style="margin: 0 0 0.5em 0; flex: 1;">We use cookies to enhance your experience and embed a Google Form. You can choose to allow analytics and marketing cookies.</p>
-        <div style="display: flex; gap: 0.5em;">
-          <button id="acceptAllCookies" style="padding: 0.5em 1em; background: green; color: white; border: none; cursor: pointer;">Accept All</button>
-          <button id="customCookies" style="padding: 0.5em 1em; background: green; color: white; border: none; cursor: pointer;">Set Preferences</button>
-          <button id="declineCookies" style="padding: 0.5em 1em; background: grey; color: white; border: none; cursor: pointer;">Decline</button>
+      <div style="max-width:960px;margin:auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.75em;">
+        <p style="margin:0;flex:1 1 420px;">We use cookies to run this site and embed a Google Form. Choose whether to allow analytics and marketing cookies.</p>
+        <div style="display:flex;gap:.5em;flex-wrap:wrap;">
+          <button id="acceptAllCookies" style="padding:.5em 1em;background:#29741d;color:#fff;border:0;border-radius:6px;cursor:pointer">Accept all</button>
+          <button id="customCookies" style="padding:.5em 1em;background:#0b3d91;color:#fff;border:0;border-radius:6px;cursor:pointer">Set preferences</button>
+          <button id="declineCookies" style="padding:.5em 1em;background:#6b7280;color:#fff;border:0;border-radius:6px;cursor:pointer">Decline</button>
         </div>
-      </div>`;
+      </div>
+    `;
     document.body.appendChild(banner);
 
-    document.getElementById('acceptAllCookies').onclick = () => {
-      setConsent({ required: true, analytics: true, marketing: true });
-      applyConsentToDOM();
-    };
-    document.getElementById('customCookies').onclick = () => {
+    document.getElementById('acceptAllCookies')?.addEventListener('click', () => {
+      setConsent({ analytics: true, marketing: true });
+    });
+    document.getElementById('customCookies')?.addEventListener('click', () => {
       window.location.href = 'cookie-policy.html';
-    };
-    document.getElementById('declineCookies').onclick = () => {
-      setConsent({ required: true, analytics: false, marketing: false });
-      applyConsentToDOM();
-    };
+    });
+    document.getElementById('declineCookies')?.addEventListener('click', () => {
+      setConsent({ analytics: false, marketing: false });
+    });
   }
 
-  // Optional DOM shortcut (the main toggling is in site-consent-loader.js)
-  function applyConsentToDOM() {
-    if (window.cookieConsent?.analytics) {
-      const container = document.getElementById('formContainer');
-      const fallback  = document.getElementById('formLink');
-      if (container && fallback) {
-        container.style.display = 'block';
-        fallback.style.display = 'none';
-      }
+  // Init
+  (function init() {
+    const saved = readConsentFromStorage();
+    if (saved.analytics !== undefined || saved.marketing !== undefined) {
+      window.cookieConsent = saved;
+      emitConsentUpdated();
+    } else {
+      showBanner();
     }
-  }
-
-  // ---- Load from storage (with migration) ----
-  (function initConsent() {
-    // migrate from OLD_KEY if present
-    const old = localStorage.getItem(OLD_KEY);
-    if (old && !localStorage.getItem(KEY)) {
-      try {
-        localStorage.setItem(KEY, old);
-        localStorage.removeItem(OLD_KEY);
-      } catch {}
-    }
-    const saved = localStorage.getItem(KEY);
-    if (saved) {
-      try {
-        window.cookieConsent = JSON.parse(saved);
-        emitConsentUpdated();
-        applyConsentToDOM();
-        return;
-      } catch {}
-    }
-    showBanner();
   })();
 
-  document.addEventListener('cookieConsentUpdated', applyConsentToDOM);
+  // No DOM toggling here — site-consent-loader.js handles UI based on consent.
 })();
