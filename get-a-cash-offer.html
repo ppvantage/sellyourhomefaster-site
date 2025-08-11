@@ -35,7 +35,7 @@
 	
     <section id="leadform"  style="display:none">
       <div id="formContainer" style="display:none">
-        <iframe src="https://forms.gle/fx53tvXj8jzTTiRE7" width="640" height="1050" frameborder="0" marginheight="0" marginwidth="0" loading="lazy">Loading…</iframe>
+        <iframe id="embeddedForm" src="https://forms.gle/fx53tvXj8jzTTiRE7" width="640" height="1050" frameborder="0" marginheight="0" marginwidth="0" loading="lazy">Loading…</iframe>
       </div>
     </section>
 	
@@ -99,6 +99,7 @@
       } else {
         document.getElementById('leadform').style.display = 'none';
         document.getElementById('formContainer').style.display = 'none';
+		document.getElementById('embeddedForm').src += '';
         document.getElementById('content').style.display = 'block';
         document.getElementById('formLink').style.display = 'block';
         document.getElementById('formLink2').style.display = 'block';
