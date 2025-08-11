@@ -2,11 +2,17 @@
 (function () {
   const isPolicyPage = window.location.pathname.includes('cookie-policy');
 
+  function emitConsentUpdated() {
+    const evt = new Event('cookieConsentUpdated');
+    document.dispatchEvent(evt);
+    window.dispatchEvent(evt);
+  }
+
   function setConsent(consent) {
     localStorage.setItem('cookieConsent', JSON.stringify(consent));
     window.cookieConsent = consent;
     document.getElementById('cookie-banner')?.remove();
-    document.dispatchEvent(new Event('cookieConsentUpdated'));
+    emitConsentUpdated()
   }
 
   function showBanner() {
