@@ -3,7 +3,7 @@
   // Elements (some pages may not have all of these)
   const leadform      = document.getElementById('leadform');
   const formContainer = document.getElementById('formContainer');
-  const leadcontentArea   = document.querySelector('#leadcontent'); // <— handles both
+  const leadcontentArea  = document.getElementById('leadcontent');
   const link1         = document.getElementById('formLink');
   const link2         = document.getElementById('formLink2');
   const form          = document.getElementById('embeddedForm');
