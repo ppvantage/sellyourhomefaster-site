@@ -1,85 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Privacy Policy</title>
+
+  <meta name="description" content="How Sell Your Home Faster (P&P Vantage Limited) handles your personal data, including what we collect and how we use it." />
+  <link rel="canonical" href="https://www.sellyourhomefaster.uk/privacy.html" />
+  <meta name="theme-color" content="#0b3d91" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Privacy Policy" />
+  <meta property="og:description" content="Learn how we collect, use, and protect your data." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.sellyourhomefaster.uk/privacy.html" />
+
   <link rel="stylesheet" href="styles.css" />
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <link rel="manifest" href="site.webmanifest">
-  <script src="cookie-consent.js" defer></script>
+
+  <!-- Shared consent scripts -->
+  <script src="/assets/js/cookie-consent.js" defer></script>
+  <script src="/assets/js/site-consent-loader.js" defer></script>
 </head>
 <body>
- 
-
   <main class="container">
-   <header>
-	<a href="index.html" class="logo">
-	  <img src="assets/SYHF_logo_full.png" alt="Sell Your Home Faster Logo" class="logo" href="index.html">
-	</a>
-    <div class="headline">
-      <h1>Sell Your Home Faster – No Fees, No Stress</h1>
-      <p>We're here to help you move forward, no matter the reason.</p>
-    </div>
-  </header>
-  
-  <section id="policy">
-    <h1>Privacy Policy</h1>
-	
-	<p>Sellyourhomefaster.uk ("we", "us", or "our"), owned by P&amp;P Vantage Limited, respects your privacy and is committed to protecting your personal data.<br>
-	<br>The <a href="https://www.ppvantage.co.uk/privacy-policy/">P&amp;P Vantage Privacy Policy.</a> explains how we collect, use, store, and share your information when you use our website sellyourhomefaster.uk ("Website") or otherwise communicate with us.
-	</p>
-  </section>
-  
-  <footer>
-    <p>Contact us: <a href="mailto:contact@sellyourhomefaster.co.uk">contact@sellyourhomefaster.co.uk</a></p>
-    <p>
-      <a href="https://www.facebook.com/profile.php?id=61577849314838" target="_blank">Facebook</a> |
-      <a href="https://www.instagram.com/sellyourhome.faster " target="_blank">Instagram</a>
-    </p>
-    <p><a href="index.html">Home</a> | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms</a> | <a href="cookie-policy.html">Cookie Policy</a></p>
-    <p>
-      Disclaimer: Sell Your Home Faster operates as a lead generation platform under P&amp;P Vantage Limited, connecting property owners with independent cash buyers and investors as an alternative to traditional estate agency routes. All buyers act independently, and we do not represent or provide advice on their behalf. We do not offer legal or financial advice, and strongly recommend that you seek independent legal counsel before entering into any agreement regarding the sale of your property.
-    </p>
-    <p>© 2025 Sell Your Home Faster – Powered by P&amp;P Vantage Limited</p>
-  </footer>
+    <header>
+      <a href="index.html" class="logo">
+        <img src="assets/SYHF_logo_full.png" alt="Sell Your Home Faster Logo" class="logo" width="240" height="60">
+      </a>
+      <div class="headline">
+        <p>Sell Your Home Faster – No Fees, No Stress</p>
+      </div>
+    </header>
+
+    <section id="policy">
+      <h1>Privacy Policy</h1>
+
+      <p>
+        sellyourhomefaster.uk (“we”, “us”, or “our”), owned by P&amp;P Vantage Limited, respects your privacy and is committed to protecting your personal data.
+      </p>
+      <p>
+        For full details on how we collect, use, store, and share your information when you use our website sellyourhomefaster.uk (the “Website”) or otherwise communicate with us, please refer to the
+        <a href="https://www.ppvantage.co.uk/privacy-policy/" target="_blank" rel="noopener noreferrer">P&amp;P Vantage Privacy Policy</a>.
+      </p>
+      <p>
+        If you have any questions about this policy or your data rights, contact us at
+        <a href="mailto:contact@sellyourhomefaster.uk">contact@sellyourhomefaster.uk</a>.
+      </p>
+    </section>
+
+    <footer>
+      <p>Contact us: <a href="mailto:contact@sellyourhomefaster.uk">contact@sellyourhomefaster.uk</a></p>
+      <p>
+        <a href="https://www.facebook.com/profile.php?id=61577849314838" target="_blank" rel="noopener noreferrer">Facebook</a> |
+        <a href="https://www.instagram.com/sellyourhome.faster" target="_blank" rel="noopener noreferrer">Instagram</a>
+      </p>
+      <p><a href="index.html">Home</a> | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms</a> | <a href="cookie-policy.html">Cookie Policy</a></p>
+      <p>
+        Disclaimer: Sell Your Home Faster operates as a lead generation platform under P&amp;P Vantage Limited, connecting property owners with independent cash buyers and investors as an alternative to traditional estate agency routes. All buyers act independently, and we do not represent or provide advice on their behalf. We do not offer legal or financial advice, and strongly recommend that you seek independent legal counsel before entering into any agreement regarding the sale of your property.
+      </p>
+      <p>© 2025 Sell Your Home Faster – Powered by P&amp;P Vantage Limited</p>
+    </footer>
   </main>
-
-  <script>
-    const form = document.getElementById('cookie-settings');
-    const analyticsCheckbox = document.getElementById('analyticsConsent');
-    const marketingCheckbox = document.getElementById('marketingConsent');
-    const status = document.getElementById('saveStatus');
-
-    // Load saved preferences
-    document.addEventListener('DOMContentLoaded', () => {
-      const saved = localStorage.getItem('cookieConsent');
-      if (saved) {
-        try {
-          const consent = JSON.parse(saved);
-          analyticsCheckbox.checked = !!consent.analytics;
-          marketingCheckbox.checked = !!consent.marketing;
-        } catch (e) {
-          console.error('Failed to parse cookie consent');
-        }
-      }
-    });
-
-    // Handle submission
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const consent = {
-        analytics: analyticsCheckbox.checked,
-        marketing: marketingCheckbox.checked
-      };
-      localStorage.setItem('cookieConsent', JSON.stringify(consent));
-      window.cookieConsent = consent;
-      document.dispatchEvent(new Event('cookieConsentUpdated'));
-      status.style.display = 'block';
-    });
-  </script>
 </body>
 </html>
