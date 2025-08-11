@@ -1,1 +1,33 @@
-{"name":"Sell Your Home Faster","short_name":"SYHF","icons":[{"src":"/android-chrome-192x192.png","sizes":"192x192","type":"image/png"},{"src":"/android-chrome-512x512.png","sizes":"512x512","type":"image/png"}],"theme_color":"#29741d","background_color":"#ffffff","display":"standalone"}
+{
+  "id": "/",
+  "name": "Sell Your Home Faster",
+  "short_name": "SYHF",
+  "description": "Sell your house fast for cash. No fees. No stress. Local, trustworthy and confidential.",
+  "lang": "en-GB",
+  "dir": "ltr",
+  "start_url": "/?source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "display_override": ["standalone", "browser"],
+  "theme_color": "#29741d",
+  "background_color": "#ffffff",
+  "icons": [
+    { "src": "/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/android-chrome-512x512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    {
+      "name": "Get a Cash Offer",
+      "short_name": "Cash Offer",
+      "url": "/get-a-cash-offer.html"
+    },
+    {
+      "name": "Cookie Settings",
+      "short_name": "Cookies",
+      "url": "/cookie-policy.html"
+    }
+  ],
+  "categories": ["business", "finance", "utilities"],
+  "prefer_related_applications": false
+}
