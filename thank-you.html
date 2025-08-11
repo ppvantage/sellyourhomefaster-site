@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thank You | Your Cash Offer Request Was Received</title>
+
+  <meta name="description" content="Thanks for your submission. We’ll be in touch within 24 hours to discuss your options and provide a tailored cash offer." />
+  <link rel="canonical" href="https://www.sellyourhomefaster.uk/thank-you.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Thanks — We’re On It!" />
+  <meta property="og:description" content="We’ll contact you within 24 hours to discuss your situation and next steps." />
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.sellyourhomefaster.uk/thank-you.html">
+
+  <!-- Optional: set an OG image when you have one -->
+  <!-- <meta property="og:image" content="https://www.sellyourhomefaster.uk/assets/og-thank-you.jpg"> -->
+
+  <meta name="theme-color" content="#0b3d91" />
+
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="manifest" href="site.webmanifest">
+
+  <!-- Your cookie banner/controller -->
+  <script src="cookie-consent.js" defer></script>
+</head>
+<body>
+
+  <main class="container">
+    <header>
+      <a href="index.html" class="logo">
+        <img src="assets/SYHF_logo_full.png" alt="Sell Your Home Faster Logo" class="logo" width="240" height="60">
+      </a>
+      <div class="headline">
+        <h1>Thank You — We’re On It</h1>
+        <h2>We’ve received your request. A member of our team will be in touch within 24 hours.</h2>
+        <div class="cta-inline">
+          <a href="index.html" class="cta-button">Back to Home</a>
+          <a href="mailto:contact@sellyourhomefaster.uk" class="cta-button cta-secondary">Email Us</a>
+          <!-- Optional: WhatsApp or Phone CTA -->
+          <!-- <a href="https://wa.me/44XXXXXXXXXX" target="_blank" rel="noopener noreferrer" class="cta-button cta-secondary">WhatsApp Us</a> -->
+          <!-- <a href="tel:+44XXXXXXXXXX" class="cta-button cta-secondary">Call Us</a> -->
+        </div>
+      </div>
+    </header>
+
+    <!-- Optional: status/next steps content -->
+    <section id="content">
+      <h2>What Happens Next?</h2>
+      <ul>
+        <li><strong>Step 1:</strong> We’ll review your details and reach out to understand your situation.</li>
+        <li><strong>Step 2:</strong> We’ll discuss options and timelines that work for you.</li>
+        <li><strong>Step 3:</strong> If you’re happy, we’ll proceed — no agent fees, no hassle.</li>
+      </ul>
+      <p>If anything changes or you’d like to add more information, just reply to our email at
+        <a href="mailto:contact@sellyourhomefaster.uk">contact@sellyourhomefaster.uk</a>.
+      </p>
+    </section>
+
+    <!-- (Usually not needed on TY page) Hidden embed section; leave hidden or delete -->
+    <section id="leadform" style="display:none">
+      <div id="formContainer" style="display:none">
+        <iframe id="embeddedForm" width="640" height="1050" frameborder="0" marginheight="0" marginwidth="0" loading="lazy" title="Cash offer form"></iframe>
+      </div>
+    </section>
+
+    <section id="faq">
+      <h2>Frequently Asked Questions</h2>
+      <ul>
+        <li><strong>Do I have to pay any fees?</strong> No, there are no agent fees or hidden charges.</li>
+        <li><strong>Will you buy any property?</strong> Yes – any condition, any reason.</li>
+        <li><strong>Is it confidential?</strong> Absolutely. Your privacy matters to us.</li>
+        <li><strong>How fast can you complete?</strong> We aim for as fast as you need – usually within weeks.</li>
+      </ul>
+    </section>
+
+    <footer>
+      <p>Contact us: <a href="mailto:contact@sellyourhomefaster.uk">contact@sellyourhomefaster.uk</a></p>
+      <p>
+        <a href="https://www.facebook.com/profile.php?id=61577849314838" target="_blank" rel="noopener noreferrer">Facebook</a> |
+        <a href="https://www.instagram.com/sellyourhome.faster" target="_blank" rel="noopener noreferrer">Instagram</a>
+      </p>
+      <p><a href="index.html">Home</a> | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms</a> | <a href="cookie-policy.html">Cookie Policy</a></p>
+      <p>
+        Disclaimer: Sell Your Home Faster operates as a lead generation platform under P&amp;P Vantage Limited, connecting property owners with independent cash buyers and investors as an alternative to traditional estate agency routes. All buyers act independently, and we do not represent or provide advice on their behalf. We do not offer legal or financial advice, and strongly recommend that you seek independent legal counsel before entering into any agreement regarding the sale of your property.
+      </p>
+      <p>© 2025 Sell Your Home Faster – Powered by P&amp;P Vantage Limited</p>
+    </footer>
+  </main>
+
+  <!-- Consent-aware Pixel & (optional) embed handling -->
+  <script>
+  (function () {
+    // If you also want to show an embed here later:
+    const leadform = document.getElementById('leadform');
+    const formContainer = document.getElementById('formContainer');
+    const form = document.getElementById('embeddedForm');
+    const GOOGLE_FORM_EMBED_URL = 'https://docs.google.com/forms/d/e/FORM_ID/viewform?embedded=true'; // leave as-is if unused
+
+    let fbqLoaded = false;
+    function getConsent() {
+      const c = window.cookieConsent || {};
+      return { marketing: !!c.marketing, analytics: !!c.analytics };
+    }
+
+    function loadMetaPixelOnce() {
+      if (fbqLoaded) return;
+      const pre = document.createElement('link');
+      pre.rel = 'preconnect';
+      pre.href = 'https://connect.facebook.net';
+      document.head.appendChild(pre);
+
+      !function(f,b,e,v,n,t,s){
+        if(f.fbq) return;
+        n=f.fbq=function(){ n.callMethod ? n.callMethod.apply(n,arguments) : n.queue.push(arguments) };
+        if(!f._fbq) f._fbq=n;
+        n.push=n; n.loaded=!0; n.version='2.0';
+        n.queue=[];
+        t=b.createElement(e); t.async=!0; t.src=v;
+        s=b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t,s);
+      }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+
+      fbq('init', '123456789012345');
+      fbq('track', 'PageView');
+      fbqLoaded = true;
+    }
+
+    // Fire Lead on this page (thank-you) when marketing consent is true
+    function trackLeadIfAllowed() {
+      if (window.cookieConsent?.marketing && window.fbq) {
+        // Optional dedup: pick up an event_id from URL (?eid=xxxx) if you send server-side too
+        const params = new URLSearchParams(location.search);
+        const eventId = params.get('eid');
+        if (eventId) {
+          fbq('track', 'Lead', {}, { eventID: eventId });
+        } else {
+          fbq('track', 'Lead');
+        }
+      }
+    }
+
+    function maybeShowEmbed() {
+      if (!leadform || !formContainer || !form) return;
+      if (window.cookieConsent?.analytics) {
+        leadform.style.display = 'block';
+        formContainer.style.display = 'block';
+        if (!form.src) {
+          const pre2 = document.createElement('link');
+          pre2.rel = 'preconnect';
+          pre2.href = 'https://docs.google.com';
+          document.head.appendChild(pre2);
+          form.src = GOOGLE_FORM_EMBED_URL;
+        }
+      } else {
+        leadform.style.display = 'none';
+        formContainer.style.display = 'none';
+        form.removeAttribute('src');
+      }
+    }
+
+    function render() {
+      const { marketing } = getConsent();
+      if (marketing) loadMetaPixelOnce();
+      // lead tracking on TY page
+      trackLeadIfAllowed();
+      // optional embed
+      maybeShowEmbed();
+    }
+
+    document.addEventListener('DOMContentLoaded', render);
+    window.addEventListener('cookieConsentUpdated', render);
+
+    // small safety to catch late consent writes
+    let tries = 0;
+    const iv = setInterval(() => { render(); if (++tries >= 10) clearInterval(iv); }, 500);
+  })();
+  </script>
+
+</body>
+</html>
