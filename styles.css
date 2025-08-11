@@ -1,155 +1,88 @@
-/* Typography & Layout */
-body {
-  font-family: 'Lato', sans-serif;
-  margin: 0;
-  padding: 0;
-  background: #ffffff;
-  color: #191919;
+/* =========================
+   Base / Tokens
+========================= */
+:root{
+  --brand:#29741d;
+  --brand-ink:#f3f4e7;
+  --surface:#e7efe1;
+  --page:#ffffff;
+  --accent:#0b3d91;
+  --muted:#6b7280;
+  --link:#0b3d91;
+  --link-contrast:#FFD56B; /* links on dark sections */
 }
 
-.container {
-  max-width: 960px;
-  margin: auto;
+*{box-sizing:border-box}
+
+body{
+  font-family: 'Lato', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  line-height:1.6;
+  margin:0;
+  color:#191919;
+  background:#ffffff;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
 }
 
-.hidden { display: none; }
-
-#formContainer { max-width: 640px; margin: 0 auto; }
-
-/* Header two-column layout */
-header {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #e7efe1;
-  padding: 2em 1em;
-  gap: 1.5em;
+.container{
+  max-width:960px;
+  margin:auto;
+  padding:0 16px; /* gutters */
 }
 
-header img.logo {
-  max-width: 180px;
-  height: auto;
-  flex: 1 1 180px;
+.hidden{display:none;}
+.muted{color:var(--muted);}
+
+/* Make embedded form responsive */
+#formContainer{max-width:640px;margin:0 auto;}
+#embeddedForm{width:100%;border:0}
+
+/* =========================
+   Header
+========================= */
+header{
+  display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between;
+  background:var(--surface);
+  padding:2em 1em;
+  gap:1.5em;
 }
 
-.headline {
-  flex: 2 1 300px;
-  text-align: left;
+header img.logo{
+  max-width:240px; /* was 180px; align with HTML width */
+  height:auto;
+  flex:1 1 240px;
 }
 
-header h1 {
-  font-size: 2.4em;
-  margin-bottom: 0.5em;
-  color: #29741d;
+.headline{flex:2 1 300px;text-align:left}
+
+header h1{
+  font-size:2.4rem; line-height:1.2;
+  margin:0 0 .5em 0;
+  color:var(--brand);
 }
 
-header p {
-  font-size: 1.1em;
-  margin-bottom: 1.5em;
+header p{font-size:1.1rem; margin:0 0 1.5em 0}
+
+/* =========================
+   Typography
+========================= */
+h1,h2,h3{margin:.2em 0 .4em}
+h2{font-size:1.6rem}
+h3{font-size:1.25rem}
+p{margin:0 0 1em}
+
+/* =========================
+   CTA Button
+========================= */
+.cta-button{
+  background:var(--brand);
+  color:#fff;
+  padding:12px 24px;
+  text-decoration:none;
+  border-radius:6px;
+  font-weight:700;
+  display:inline-block;
+  margin-top:1em;
+  transition:transform .06s ease, box-shadow .12s ease;
 }
-
-/* CTA button */
-.cta-button {
-  background: #29741d;
-  color: white;
-  padding: 12px 24px;
-  text-decoration: none;
-  border-radius: 6px;
-  font-weight: bold;
-  display: inline-block;
-  margin-top: 1em;
-}
-
-/* Section Layout */
-section {
-  padding: 3em 1em;
-  text-align: center;
-}
-
-section p {
-  max-width: 600px;
-  text-align: center;
-  display: inline-block;
-}
-
-
-section#policy {
-  text-align: left;
-  padding: 24px 48px;
-}
-
-section#policy p {
-  text-align: left;
-  
-}
-
-section#content {
-  background-color: #29741d;
-  color: #f3f4e7;
-}
-
-section#leadcontent {
-  background-color: #29741d;
-  color: #f3f4e7;
-}
-
-section#leadform {
-  background-color: #29741d;
-  color: #f3f4e7;
-}
-
-section#leadform a {
-  color: #FFD56B; /* Golden Sunburst */
-}
-
-section#faq {
-  background-color: #e7efe1;
-}
-
-section#faq ul {
-  list-style: none;
-  padding: 0;
-  max-width: 600px;
-  margin: 2em auto;
-  text-align: left;
-}
-
-section#faq li {
-  margin-bottom: 1.2em;
-}
-
-/* Footer Styling */
-footer {
-  background-color: #29741d;
-  color: #f3f4e7;
-  text-align: center;
-  padding: 2em 1em;
-}
-
-footer a {
-  color: #f3f4e7;
-  text-decoration: underline;
-}
-
-footer p {
-  margin: 0.5em auto;
-  max-width: 600px;
-  font-size: 0.9em;
-}
-
-/* Responsive Support */
-@media (max-width: 600px) {
-  header {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .headline {
-    text-align: center;
-  }
-
-  header img.logo {
-    margin-bottom: 1em;
-  }
-}
+.cta-button:hover{
