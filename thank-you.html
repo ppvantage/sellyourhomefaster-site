@@ -27,7 +27,8 @@
   <link rel="manifest" href="site.webmanifest">
 
   <!-- Your cookie banner/controller -->
-  <script src="cookie-consent.js" defer></script>
+  <script src="/assets/js/cookie-consent.js" defer></script>
+  <script src="/assets/js/thank-you-lead.js" defer></script>
 </head>
 <body>
 
@@ -92,94 +93,5 @@
       <p>© 2025 Sell Your Home Faster – Powered by P&amp;P Vantage Limited</p>
     </footer>
   </main>
-
-  <!-- Consent-aware Pixel & (optional) embed handling -->
-  <script>
-  (function () {
-    // If you also want to show an embed here later:
-    const leadform = document.getElementById('leadform');
-    const formContainer = document.getElementById('formContainer');
-    const form = document.getElementById('embeddedForm');
-    const GOOGLE_FORM_EMBED_URL = 'https://docs.google.com/forms/d/e/FORM_ID/viewform?embedded=true'; // leave as-is if unused
-
-    let fbqLoaded = false;
-    function getConsent() {
-      const c = window.cookieConsent || {};
-      return { marketing: !!c.marketing, analytics: !!c.analytics };
-    }
-
-    function loadMetaPixelOnce() {
-      if (fbqLoaded) return;
-      const pre = document.createElement('link');
-      pre.rel = 'preconnect';
-      pre.href = 'https://connect.facebook.net';
-      document.head.appendChild(pre);
-
-      !function(f,b,e,v,n,t,s){
-        if(f.fbq) return;
-        n=f.fbq=function(){ n.callMethod ? n.callMethod.apply(n,arguments) : n.queue.push(arguments) };
-        if(!f._fbq) f._fbq=n;
-        n.push=n; n.loaded=!0; n.version='2.0';
-        n.queue=[];
-        t=b.createElement(e); t.async=!0; t.src=v;
-        s=b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t,s);
-      }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
-
-      fbq('init', '123456789012345');
-      fbq('track', 'PageView');
-      fbqLoaded = true;
-    }
-
-    // Fire Lead on this page (thank-you) when marketing consent is true
-    function trackLeadIfAllowed() {
-      if (window.cookieConsent?.marketing && window.fbq) {
-        // Optional dedup: pick up an event_id from URL (?eid=xxxx) if you send server-side too
-        const params = new URLSearchParams(location.search);
-        const eventId = params.get('eid');
-        if (eventId) {
-          fbq('track', 'Lead', {}, { eventID: eventId });
-        } else {
-          fbq('track', 'Lead');
-        }
-      }
-    }
-
-    function maybeShowEmbed() {
-      if (!leadform || !formContainer || !form) return;
-      if (window.cookieConsent?.analytics) {
-        leadform.style.display = 'block';
-        formContainer.style.display = 'block';
-        if (!form.src) {
-          const pre2 = document.createElement('link');
-          pre2.rel = 'preconnect';
-          pre2.href = 'https://docs.google.com';
-          document.head.appendChild(pre2);
-          form.src = GOOGLE_FORM_EMBED_URL;
-        }
-      } else {
-        leadform.style.display = 'none';
-        formContainer.style.display = 'none';
-        form.removeAttribute('src');
-      }
-    }
-
-    function render() {
-      const { marketing } = getConsent();
-      if (marketing) loadMetaPixelOnce();
-      // lead tracking on TY page
-      trackLeadIfAllowed();
-      // optional embed
-      maybeShowEmbed();
-    }
-
-    document.addEventListener('DOMContentLoaded', render);
-    window.addEventListener('cookieConsentUpdated', render);
-
-    // small safety to catch late consent writes
-    let tries = 0;
-    const iv = setInterval(() => { render(); if (++tries >= 10) clearInterval(iv); }, 500);
-  })();
-  </script>
-
 </body>
 </html>
