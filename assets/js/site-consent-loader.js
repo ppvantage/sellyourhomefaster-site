@@ -48,7 +48,7 @@
 	  function showEmbed() {
 	    if (leadform) leadform.style.display = 'block';
 	    if (formContainer) formContainer.style.display = 'block';
-	    if (content) content.style.display = 'none';
+	    if (leadcontent) content.style.display = 'none';
 	    if (link1) link1.style.display = 'none';
 	    if (link2) link2.style.display = 'none';
 	
@@ -66,7 +66,7 @@
 	  function hideEmbed() {
 	    if (leadform) leadform.style.display = 'none';
 	    if (formContainer) formContainer.style.display = 'none';
-	    if (content) content.style.display = 'block';
+	    if (leadcontent) content.style.display = 'block';
 	    if (link1) link1.style.display = 'block';
 	    if (link2) link2.style.display = 'block';
 	    if (form) form.removeAttribute('src'); // prevent third‑party load without consent
