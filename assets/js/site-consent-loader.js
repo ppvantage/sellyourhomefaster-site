@@ -9,7 +9,7 @@
   const form          = document.getElementById('embeddedForm');
 
   // Use your real Google Forms EMBED URL
-  const GOOGLE_FORM_EMBED_URL = 'https://docs.google.com/forms/d/e/1FAIpQLScgkmQURrSfpuYu4FChic5PWcYIwLIhRotyxBoalHqvle684w/viewform?embedded=true';
+  const GOOGLE_FORM_EMBED_URL = 'https://docs.google.com/forms/d/e/1FAIpQLScgkmQURrSfpuYu4FChic5PWcYIwLIhRotyxBoalHqvle684w/viewform';
 
   let fbqLoaded = false;
 
