@@ -49,9 +49,16 @@
     </header>
 
     <!-- Hidden until consent -->
-    <section id="leadform" style="display:none">
-      <div id="formContainer" style="display:none">
-        <iframe id="embeddedForm" width="640" height="1050" frameborder="0" marginheight="0" marginwidth="0" loading="lazy" title="Cash offer form"></iframe>
+    <section id="leadform" class="hidden">
+      <div id="formContainer" class="hidden">
+        <iframe id="embeddedForm" width="100%" height="1050" frameborder="0" marginheight="0" marginwidth="0" loading="lazy" title="Cash offer form"
+			referrerpolicy="strict-origin-when-cross-origin"></iframe>
+		<noscript>
+		  <p>
+		    JavaScript is required to show our form. You can still request an offer here:
+		    <a href="https://forms.gle/wU3rfhsV9tNVUSdn9" rel="noopener noreferrer" target="_blank">Open form</a>
+		  </p>
+		</noscript>
       </div>
     </section>
 
