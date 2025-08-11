@@ -1,5 +1,7 @@
 // cookie-consent.js
 (function () {
+  const KEY = 'syhf_cookie_consent_v1';       // <- versioned key
+  const OLD_KEY = 'cookieConsent';            // <- migrate from this if present
   const isPolicyPage = window.location.pathname.includes('cookie-policy');
 
   function emitConsentUpdated() {
@@ -9,10 +11,10 @@
   }
 
   function setConsent(consent) {
-    localStorage.setItem('cookieConsent', JSON.stringify(consent));
+    localStorage.setItem(KEY, JSON.stringify(consent));
     window.cookieConsent = consent;
     document.getElementById('cookie-banner')?.remove();
-    emitConsentUpdated()
+    emitConsentUpdated();
   }
 
   function showBanner() {
@@ -40,22 +42,23 @@
     document.body.appendChild(banner);
 
     document.getElementById('acceptAllCookies').onclick = () => {
-      setConsent({ required:true, analytics: true, marketing: true });
-	  applyConsentToDOM();
+      setConsent({ required: true, analytics: true, marketing: true });
+      applyConsentToDOM();
     };
-	document.getElementById('customCookies').onclick = () => {
+    document.getElementById('customCookies').onclick = () => {
       window.location.href = 'cookie-policy.html';
     };
     document.getElementById('declineCookies').onclick = () => {
-      setConsent({ required:true, analytics: false, marketing: false });
-	  applyConsentToDOM();
+      setConsent({ required: true, analytics: false, marketing: false });
+      applyConsentToDOM();
     };
   }
 
+  // Optional DOM shortcut (the main toggling is in site-consent-loader.js)
   function applyConsentToDOM() {
-    if (window.cookieConsent && window.cookieConsent.analytics) {
+    if (window.cookieConsent?.analytics) {
       const container = document.getElementById('formContainer');
-      const fallback = document.getElementById('formLink');
+      const fallback  = document.getElementById('formLink');
       if (container && fallback) {
         container.style.display = 'block';
         fallback.style.display = 'none';
@@ -63,19 +66,27 @@
     }
   }
 
-  // Check saved consent or show banner
-  const saved = localStorage.getItem('cookieConsent');
-  if (saved) {
-    try {
-      window.cookieConsent = JSON.parse(saved);
-      document.dispatchEvent(new Event('cookieConsentUpdated'));
-      applyConsentToDOM();
-    } catch (e) {
-      showBanner();
+  // ---- Load from storage (with migration) ----
+  (function initConsent() {
+    // migrate from OLD_KEY if present
+    const old = localStorage.getItem(OLD_KEY);
+    if (old && !localStorage.getItem(KEY)) {
+      try {
+        localStorage.setItem(KEY, old);
+        localStorage.removeItem(OLD_KEY);
+      } catch {}
     }
-  } else {
+    const saved = localStorage.getItem(KEY);
+    if (saved) {
+      try {
+        window.cookieConsent = JSON.parse(saved);
+        emitConsentUpdated();
+        applyConsentToDOM();
+        return;
+      } catch {}
+    }
     showBanner();
-  }
+  })();
 
   document.addEventListener('cookieConsentUpdated', applyConsentToDOM);
 })();
