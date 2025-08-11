@@ -85,4 +85,85 @@ p{margin:0 0 1em}
   margin-top:1em;
   transition:transform .06s ease, box-shadow .12s ease;
 }
-.cta-button:hover{
+.cta-button:hover{transform:translateY(-1px)}
+.cta-button:focus-visible{
+  outline:2px solid transparent;
+  box-shadow:0 0 0 3px rgba(11,61,145,.25), 0 0 0 5px var(--brand);
+}
+
+/* =========================
+   Sections
+========================= */
+section{padding:3em 1em; text-align:center}
+section p{max-width:600px; text-align:center; display:inline-block}
+
+section#policy{
+  text-align:left;
+  padding:24px 48px;
+}
+section#policy p{max-width:70ch; text-align:left}
+section#policy ol, section#policy ul{max-width:70ch; margin-left:1.25em}
+section#policy li{margin:.5em 0}
+
+section#content,
+section#leadcontent,
+section#leadform{
+  background:var(--brand);
+  color:var(--brand-ink);
+}
+section#leadform a{color:var(--link-contrast)}
+
+section#faq{background:var(--surface)}
+section#faq ul{
+  list-style:none; padding:0; max-width:600px; margin:2em auto; text-align:left;
+}
+section#faq li{margin-bottom:1.2em}
+
+/* =========================
+   Links
+========================= */
+a{color:var(--link)}
+a:hover{text-decoration:underline}
+a:focus-visible{
+  outline:2px solid transparent;
+  box-shadow:0 0 0 3px rgba(11,61,145,.25);
+  border-radius:4px;
+}
+
+/* In dark sections, ensure contrasty links */
+section#content a,
+section#leadcontent a,
+section#leadform a{color:var(--link-contrast)}
+
+/* =========================
+   Footer
+========================= */
+footer{
+  background:var(--brand);
+  color:var(--brand-ink);
+  text-align:center;
+  padding:2em 1em;
+}
+footer a{color:var(--brand-ink); text-decoration:underline}
+footer p{margin:.5em auto; max-width:600px; font-size:.95rem}
+
+/* =========================
+   Utilities / A11y
+========================= */
+.visually-hidden{
+  position:absolute !important;
+  height:1px; width:1px;
+  overflow:hidden;
+  clip:rect(1px,1px,1px,1px);
+  white-space:nowrap;
+}
+
+/* =========================
+   Responsive
+========================= */
+@media (max-width: 600px){
+  header{flex-direction:column; text-align:center}
+  .headline{text-align:center}
+  header img.logo{margin-bottom:1em}
+  section#policy{padding:20px}
+}
