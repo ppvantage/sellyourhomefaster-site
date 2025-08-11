@@ -27,16 +27,37 @@
 		<div class="headline">
         <h1>Get a Cash Offer Today</h1>
         <h2>We'll get in touch within 24 hours to understand your situation <br>and offer the best solution.</h2>
+		<div id="formLink" >
+			<p><a href="https://forms.gle/wU3rfhsV9tNVUSdn9" target="_blank" class="cta-button">Get a Cash Offer</a></p>
+		  </div>
       </div>
     </header>
 	
-    <section id="leadform">
+    <section id="leadform"  style="display:none">
       <div id="formContainer" style="display:none">
         <iframe src="https://forms.gle/fx53tvXj8jzTTiRE7" width="640" height="1050" frameborder="0" marginheight="0" marginwidth="0" loading="lazy">Loading…</iframe>
       </div>
-      <div id="formLink" style="display:none;">
-        <p><a href="https://forms.gle/wU3rfhsV9tNVUSdn9" target="_blank">Click here to fill in the contact form</a></p>
-      </div>
+    </section>
+	
+    <section id="content">
+		<h1>Need to sell your house quickly, without the stress?</h1>
+		<p>
+		We understand how overwhelming it can feel when you need a fast, reliable sale—especially if you’re dealing with time pressure, financial worries, or uncertainty about the next step. That’s why we offer a simple, supportive solution: a direct sale for cash, on your terms.</p>
+		<p>Whether you're trying to move on from a difficult situation, avoid delays in a property chain, or just want a smoother way to sell, we’re here to help. We cut out the middlemen, skip the estate agent fees, and move at the speed you need.</p>
+		<p>No pressure. No hassle. Just a clear path forward—tailored to your needs.</p>
+    </section>
+
+    <section id="faq">
+	  <div id="formLink2" >
+		<p><a href="https://forms.gle/wU3rfhsV9tNVUSdn9" target="_blank" class="cta-button">Get a Cash Offer</a></p>
+	  </div>
+	  <h2>Frequently Asked Questions</h2>
+      <ul>
+        <li><strong>Do I have to pay any fees?</strong> No, there are no agent fees or hidden charges.</li>
+        <li><strong>Will you buy any property?</strong> Yes – any condition, any reason.</li>
+        <li><strong>Is it confidential?</strong> Absolutely. Your privacy matters to us.</li>
+        <li><strong>How fast can you complete?</strong> We aim for as fast as you need – usually within weeks.</li>
+      </ul>
     </section>
 
     <footer>
@@ -70,11 +91,17 @@
       }
 
       if (window.cookieConsent && window.cookieConsent.analytics) {
+        document.getElementById('leadform').style.display = 'block';
         document.getElementById('formContainer').style.display = 'block';
+        document.getElementById('content').style.display = 'none';
         document.getElementById('formLink').style.display = 'none';
+        document.getElementById('formLink2').style.display = 'none';
       } else {
+        document.getElementById('leadform').style.display = 'none';
         document.getElementById('formContainer').style.display = 'none';
+        document.getElementById('content').style.display = 'block';
         document.getElementById('formLink').style.display = 'block';
+        document.getElementById('formLink2').style.display = 'block';
       }
     });
   </script>
