@@ -85,6 +85,11 @@ section#content {
   color: #f3f4e7;
 }
 
+section#leadcontent {
+  background-color: #29741d;
+  color: #f3f4e7;
+}
+
 section#leadform {
   background-color: #29741d;
   color: #f3f4e7;
