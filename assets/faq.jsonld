@@ -1,0 +1,10 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question","name": "Do I have to pay any fees?","acceptedAnswer": {"@type":"Answer","text": "No, there are no agent fees or hidden charges."}},
+    {"@type": "Question","name": "Will you buy any property?","acceptedAnswer": {"@type":"Answer","text": "Yes – any condition, any reason."}},
+    {"@type": "Question","name": "Is it confidential?","acceptedAnswer": {"@type":"Answer","text": "Absolutely. Your privacy matters to us."}},
+    {"@type": "Question","name": "How fast can you complete?","acceptedAnswer": {"@type":"Answer","text": "We aim for as fast as you need – usually within weeks."}}
+  ]
+}
